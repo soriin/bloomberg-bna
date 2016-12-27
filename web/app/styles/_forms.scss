@@ -1,0 +1,19 @@
+.form-group {
+  margin: 1em;
+
+  .input-header {
+    margin-left: 1em;
+    display: inline-block;
+    width: 7.5em;
+  }
+}
+
+input.ng-invalid.ng-touched {
+    background-color: #FA787E;
+}
+
+.form-error {
+  margin-left: 1em;
+  color: red;
+  font-size: 90%;
+}

@@ -1,0 +1,53 @@
+<div class="create-expense-container">
+  <h2>New Expense Item</h2>
+  <ng-form name="expenseForm">
+    <div class="form-group">
+      <div>
+        <span class="input-header">Date:</span>
+        <input type="text" name="dateExpensed" ng-model="expense.dateExpensed" placeholder="MM/DD/YY" ng-pattern="/^\d{1,2}\/\d{1,2}\/\d{2}$/" required>
+      </div>
+      <span ng-show="expenseForm.dateExpensed.$invalid && expenseForm.dateExpensed.$touched" class="form-error">
+        Please enter a valid date not in the future.
+      </span>
+    </div>
+    <div class="form-group">
+      <div>
+        <span class="input-header">Item Description:</span>
+        <input class="expense-description-input" type="text" name="description" ng-model="expense.description" ng-maxlength="50" required>
+      </div>
+      <span ng-show="expenseForm.description.$invalid && expenseForm.description.$touched" class="form-error">
+        Please enter a description (max 50 characters).
+      </span>
+    </div>
+    <div class="form-group">
+      <div>
+        <span class="input-header">Category:</span>
+        <!--<input class="expense-category-input" type="text" name="category" ng-model="expense.category.id" ng-maxlength="250" required>-->
+        <ui-select ng-model="expense.category" class="expense-category-input" append-to-body="true">
+          <ui-select-match placeholder="Category">
+              <span ng-bind="$select.selected.name"></span>
+          </ui-select-match>
+          <ui-select-choices repeat="item in (categories | filter: $select.search) track by item.id"
+            refresh="getCategories($select.search)">
+              <span ng-bind="item.name"></span>
+          </ui-select-choices>
+        </ui-select>
+        <!--<span class="input-header">Subcategory:</span>
+        <input class="expense-subcategory-input" type="text" name="subcategory" ng-model="expense.subcategory">-->
+      </div>
+      <span ng-show="expenseForm.category.$invalid && expenseForm.category.$touched" class="form-error">
+        Please enter a category (max 25 characters).
+      </span>
+    </div>
+    <div class="form-group">
+      <div>
+        <span class="input-header">Amount:</span>
+        <input type="text" name="amount" ng-model="expense.amount" placeholder="$XX.XX" required>
+      </div>
+      <span ng-show="expenseForm.amount.$invalid && expenseForm.amount.$touched" class="form-error">
+        Please enter a valid amount of money.
+      </span>
+    </div>
+    <button ng-click="submitExpense(expense)">Save</button>
+  </ng-form>
+</div>

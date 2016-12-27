@@ -1,0 +1,45 @@
+.create-expense-container {
+  margin-bottom: 20px;
+}
+
+.display-expenses-container {
+  margin-top: 20px;
+}
+
+.header-date {
+  width: 6em;
+  text-align: center;
+}
+
+.header-description {
+  width: 30em;
+  padding-left: 1em;
+}
+
+.header-categoryName {
+  width: 7em;
+  text-align: center;
+}
+
+.header-subcategoryName {
+  width: 7em;
+  text-align: center;
+}
+
+.header-amount {
+  width: 7em;
+  text-align: center;
+}
+
+.expense-description-input {
+  width: 50em;
+}
+
+.expense-category-input {
+  width: 25em;
+  display: inline-block;
+}
+
+.expense-subcategory-input {
+  width: 25em;
+}

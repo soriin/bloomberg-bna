@@ -1,0 +1,23 @@
+<div class="display-expenses-container">
+  <h2>Submitted Expenses</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Subcategory</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="expense in expenseList track by expense.id">
+        <td class="header-date">{{expense.dateExpensed | date: "MM/dd/yyyy"}}</td>
+        <td class="header-description">{{expense.description}}</td>
+        <td class="header-categoryName">{{expense.category.name}}</td>
+        <td class="header-subcategoryName">{{expense.subcategoryName}}</td>
+        <td class="header-amount">{{expense.amount | currency}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
